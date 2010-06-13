@@ -4,7 +4,7 @@ require File.dirname(__FILE__)+'/johndoe/responser'
 
 module JohnDoe
   class ChatBot
-    def initialize(filename)
+    def initialize(filename = File.dirname(__FILE__) + "/../default.yml" )
       @loader = JohnDoe::Aiml.new
       @loader.load(filename)
       @responser = JohnDoe::Responser.new(@loader)

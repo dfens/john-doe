@@ -17,7 +17,6 @@ module JohnDoe
       @default = data['default']
       @knowledge = data['knowledge']
       normalise_default
-      puts @patterns.sort.inspect
     end
 
     protected

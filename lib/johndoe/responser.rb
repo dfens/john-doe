@@ -36,7 +36,6 @@ module JohnDoe
     end
 
     def subject_replace(s,subjects = [])
-      puts subjects.inspect
       return s if subjects.empty?
       return s.gsub("$",subjects[0])
     end
