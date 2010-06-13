@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "john-doe"
     gem.summary = %Q{Minimal chatbot AI}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{Simple chatbot AI}
     gem.email = "mikolajewskip@gmail.com"
     gem.homepage = "http://github.com/dfens/john-doe"
     gem.authors = ["Pawel Mikolajewski"]

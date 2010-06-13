@@ -1,17 +1,85 @@
 = john-doe
 
-Description goes here.
+John doe is simple chatbot AI basing on idea of AIML language. Yaml is used instead of xml.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Getting started
+
+1. Install the gem
+  sudo gem install john-doe
+2. Create your rules file (like default.yml)
+3. Sample usage:
+
+  require 'rubygems'
+  require 'john-doe'
+  cb = JohnDoe::ChatBot.new("my_rules.yml")
+
+  print "U> "
+  while (s=gets.chomp)!=""
+    puts "B> #{cb.get_response s}"
+    print "U> "
+  end
+
+== Configuration
+If you don't want to create your own rules file just do:
+  JohnDoe::ChatBot.new()
+
+=== Rules file
+
+See http://github.com/dfens/john-doe/raw/master/default.yml to understand what should be in you rules.yml file.
+Generally all bot responses are based on patterns that are regex-like, for example:
+
+whoareyou:
+  patterns:
+    p1: who are you
+    p2: what are you
+  responses:
+    r1: I am chatbot
+    r2: I am coolest bot in the net
+    r3: "I'm nobody"
+    r4: "I am bot:name"
+
+There can be unlimited number of patterns that lead to random response from "responses" node. For example if bot gets "Who are you?" it may response "I am chatbot" or "I'm nobody"
+
+There also must be rule 'default':
+  default: 
+    dontunderstand:
+      q1: "Sorry I can't understand you."
+      q2: "I don't get it..."
+      q3: "What what what??"
+it means that if bot do not recognize the sentence it will answer with some quote from 'dontunderstand'.
+
+There is also possible to add some universal knowledge for bot:
+  knowledge:
+    bot:
+      age: "21"
+      sex: "men"
+      language: "english"
+      name: "John"
+      surname: "Doe"
+      specimen: "Human"
+Now in your answers you may use scheme like: "bot:age", example
+  age:
+    patterns: 
+      p1: * old are you
+      p2: your age
+      p3: how do you feel
+      p4: how do you do
+    responses:
+      r1: "I am bot:age old"
+      r2: "I am bot:age"
+
+=== Context
+You can use context of dialog like in example:
+
+whats:
+  patterns:
+    p1: what's $
+    p2: what is $
+    p3: Tell me something about $
+  responses:
+    r1: "I'm not sure what's $"
+
+Now if someone will write "tell me something about ruby language" bot will answer "I'm not sure what's ruby language"
 
 == Copyright
 
