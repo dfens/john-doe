@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pawel Mikolajewski"]
   s.date = %q{2010-06-13}
-  s.description = %q{John Doe is very simple chatbot AI.}
+  s.description = %q{TODO: longer description of your gem}
   s.email = %q{mikolajewskip@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -19,11 +19,12 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
-     "default.yml",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "default.yml",
+     "john-doe.gemspec",
      "lib/john-doe.rb",
      "lib/johndoe/aiml.rb",
      "lib/johndoe/responser.rb",
