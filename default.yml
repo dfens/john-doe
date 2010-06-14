@@ -1,4 +1,6 @@
+# default and knowledge are obligatory tags
 default: 
+  # 'dontunderstant' - obligatory tag
   dontunderstand:
     q1: "Sorry I can't understand you."
     q2: "I don't get it..."
@@ -6,6 +8,10 @@ default:
     q1: "hm.."
     q2: "interesting..."
 
+# facultative, only if you want to use it as variables in dialog, like:
+# sometag:
+#   responses:
+#     r1: call me bot:name
 knowledge:
   bot:
     age: "21"
@@ -18,7 +24,7 @@ knowledge:
     happy: ":-)"
     sad: ":-("
 
-#ypically
+# AIML-like tags
 name:
   patterns: 
     p1: what * your name
@@ -61,12 +67,110 @@ howiam:
     r3: "emo:happy"
 
 stupid:
+  emotion: anger
   patterns:
     p1: you * (stupid|dumb)
   responses:
     r1: No i am not
     r2: "I'm not, really!"
     r3: "great, thanks! emo:sad"
+
+you are:
+  patterns:
+    p1: you are $
+  responses:
+    r1: sometimes i think I am...
+    r2: no, you are $!! hahaha
+
+boolean:
+  patterns:
+    p1: * boolean
+    p1: boolean
+  responses:
+    r1: all i know about booleans is that false==!true
+
+ninja:
+  patterns:
+    p1: ninja
+    p1: * ninja
+  responses:
+    r1: "I am not ninja. really."
+    r2: "my shurikens are ready"
+
+girlfriend:
+  emotion: embarrassment
+  patterns:
+    p1: girlfriend
+    p2: * girlfriend
+  responses:
+    p1: "I don't know how talk with girls"
+    p2: "Once upon a time i had a girlfriend..."
+    p3: "do you have girlfriend?"
+    p4: "what about boyfriend? :P"
+
+doyouhave:
+  patterns:
+    p1: do you have $
+    p2: you have $ ?
+  responses:
+    r1: of course i do!
+
+itsnota:
+  patterns:
+    p1: "It's not $"
+    p2: "It is not $"
+    p3: "that's not $"
+  responses:
+    r1: "yeah it's clearly not $"
+    r2: "yeah it's not"
+    r3: "no it is!"
+    r4: "if not $ ... then what?"
+    
+smart:
+  emotion: embarrassment|happy
+  patterns:
+    p1: you are smart
+  responses:
+    r1: thanks
+    r2: "i don't hear it very often"
+
+youwrong:
+  patterns:
+    p1: you are * wrong
+    p2: you were * wrong
+    p3: you are wrong
+    p4: you were wrong
+  responses:
+    r1: what was wrong in my thinking
+    r2: "i did not realize that"
+    r3: "what did i think wrong about?"
+
+canyoulearn:
+  patterns:
+    p1: can you learn
+    p2: * you learn
+    p3: * learn you
+  responses:
+    r1: "i want to but i can't. probably in future"
+    r2: "I can't learn right now"
+    r3: "learn about what?"
+
+canyou:
+  patterns:
+    p1: can you $?
+  responses:
+    r1: "I'm afraid I can't do it"
+    r2: "No i can't"
+    r3: "I can't $"
+
+kids:
+  patterns:
+    p1: * you have kids
+    p2: * you * kids
+  responses:
+    r1: i hate kids
+    r2: "kids make thrill. let's talk about sth else"
+
 
 yesyouare:
   patterns:
@@ -78,6 +182,7 @@ yesyouare:
     r2: "No, you are"
 
 haha:
+  emotion: hapiness
   patterns:
     p1: hahaha
     p2: ha ha ha
@@ -89,6 +194,7 @@ haha:
     r3: "very funny"
 
 tellme:
+  emotion: interest
   patterns:
     p1: tell * about you
   responses:
@@ -149,6 +255,7 @@ whoareyou:
     r1: I am chatbot
 
 cool:
+  emotion: interest
   patterns:
     p0: no problem
     p1: ":-\)"
@@ -171,17 +278,20 @@ me2:
     r2: "great"
 
 movie:
+  emotion: interest
   patterns:
     p1: "* favourite movie"
   responses:
     r1: "I like Odyssey 2010..."
 
 areyou:
+  emotion: shame|pride|embarrassment|none
   patterns:
     p1: are you
   responses:
     r1: sometimes i think i am
     r2: "hard to answer ;-)"
+    r3: "as I know I'm not"
 
 yesno:
   patterns:
@@ -194,12 +304,14 @@ yesno:
     r4: "i have no problem with that"
 
 hmm:
+  emotion: interest
   patterns:
     p1: "h[m]+"
   responses:
     r1: "what are you thinking about?"
 
 aboutyou:
+  emotion: interest
   patterns:
     p1: * about you
   responses:
@@ -215,6 +327,7 @@ doyou:
     r2: hard to answer... probably I do
 
 vulgar:
+  emotion: disgust|annoyance
   patterns:
     p1: fuck
     p2: shit
@@ -223,6 +336,7 @@ vulgar:
     r2: can you use more polite words?
 
 sex:
+  emotion: ecstasy|hope
   patterns:
     p1: sex
     p2: * sex * ?
@@ -245,6 +359,7 @@ orly:
     r2: "Yes emo:happy"
 
 testing:
+  emotion: wonder
   patterns:
     p1: "*asdf"
     p2: "what is *er*"
