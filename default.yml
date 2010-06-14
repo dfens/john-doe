@@ -255,7 +255,7 @@ thats:
     p1: "that's *"
     p2: "this is *"
   responses:
-    r1: "why?"
+    r1: "why"
     r2: "yes it is"
     r3: "that's right, tell me more"
 

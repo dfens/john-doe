@@ -40,7 +40,7 @@ module JohnDoe
       end
     end
     def normalise_pattern(pattern)
-      pattern.gsub("*",".*").gsub("$","([^\n\?!.$]*)")
+      pattern.gsub("*",".*").gsub("$","([^\n\?!.$]*)").gsub("?","\\?")
     end
 
   end
