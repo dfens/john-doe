@@ -57,7 +57,8 @@ module JohnDoe
     end
 
     def describe_who(s)
-      s.gsub(/([^a-z])me([^a-z]|$)/,"\\1###\\2").gsub(/([^a-z])you([^a-z]|$)/,"\\1me\\2").gsub("###","you")
+      s = s.gsub(/([^a-z])am\s+i([^a-z]|$)/,"\\1#AMI#\\2").gsub(/([^a-z])i\s+am([^a-z]|$)/,"\\1#IAM#\\2").gsub(/([^a-z])you\s+are([^a-z]|$)/,"\\1#AREYOU#\\2").gsub(/([^a-z])are\s+you([^a-z]|$)/,"\\1#AREYOU#\\2").gsub(/([^a-z])me([^a-z]|$)/,"\\1#ME#\\2").gsub(/([^a-z])you([^a-z]|$)/,"\\1#YOU#\\2")
+      s.gsub("#AMI#","you are").gsub("#IAM#","you are").gsub("#AREYOU#","I am").gsub("#ME#","you").gsub("#YOU#","me")
     end
   end
 end

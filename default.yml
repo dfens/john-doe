@@ -49,9 +49,21 @@ hello:
     r3: goodmorning
     r4: goodday 
 
+whatsup:
+  priority: 10
+  patterns:
+    p1: "*what's up"
+    p2: "*whats up"
+    p3: "what's up"
+    p4: "whats up"
+  responses:
+    r1: "nothing interesting"
+
 howareyou:
   patterns:
     p1: how are (you|u)
+    p3: how do you feel
+    p4: how do you do
   responses:
     r1: "thanks I'm fine. And you?"
     r2: "I'm ok, and you?"
@@ -251,8 +263,6 @@ age:
   patterns: 
     p1: * old are you
     p2: your age
-    p3: how do you feel
-    p4: how do you do
   responses:
     r1: "I am bot:age old"
     r2: "I am bot:age"
@@ -329,6 +339,25 @@ aboutyou:
     r2: "that's nice"
     r3: "what about me?"
 
+whysth:
+  priority: 10
+  patterns:
+    p1: why $ ?
+    p2: why $
+  responses:
+    r1: "i don't know why $"
+    r2: "I have no idea"
+    r3: "i also wonder why $"
+    r4: "hard to say why $"
+why:
+  patterns:
+    p1: why?
+    p2: why
+  responses:
+    r1: hard to say why
+    r2: not easy to say why
+    r3: "I don' know why"
+    r4: "I'm not sure why"
 doyou:
   patterns:
     p1: do you
