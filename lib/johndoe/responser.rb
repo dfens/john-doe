@@ -19,7 +19,6 @@ module JohnDoe
 
       @data.patterns.each do |k,v|
         if (/^#{k}/i =~ sentence)
-          puts k
           next if v[:priority] <= max_priority
           max_priority = v[:priority]
           best_v = v
