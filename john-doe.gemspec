@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "default.yml",
+     "john-doe-0.1.0.gem",
      "john-doe.gemspec",
      "lib/john-doe.rb",
      "lib/johndoe/aiml.rb",
