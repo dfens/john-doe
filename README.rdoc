@@ -11,17 +11,19 @@ John doe is simple chatbot AI basing on idea of AIML language. Yaml is used inst
 
   require 'rubygems'
   require 'john-doe'
-  cb = JohnDoe::ChatBot.new("my_rules.yml")
+  cb = JohnDoe::ChatBot.new()
 
-  print "U> "
-  while (s=gets.chomp)!=""
-    puts "B> #{cb.get_response s}"
-    print "U> "
+  while true  
+    print "User: "
+    input = gets.chomp
+    break if input == ""
+    response = cb.get_response input
+    puts "Bot:  #{response.text} (emotion:#{response.emotion})"
   end
 
 == Configuration
-If you don't want to create your own rules file just do:
-  JohnDoe::ChatBot.new()
+If you want to create your own rules file just do:
+  JohnDoe::ChatBot.new("your_rules.yml")
 
 === Rules file
 

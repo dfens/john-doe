@@ -2,13 +2,14 @@ require 'yaml'
 module JohnDoe
 
   class Aiml
-    attr_accessor :rules,:patterns,:responses, :default, :knowledge
+    attr_accessor :rules,:patterns,:responses, :default, :knowledge, :emotions
     def initialize
       @rules = []
       @patterns = {}
       @responses = []
       @default = []
       @knowledge = []
+      @emotions = {}
     end
 
     def load(filename)
@@ -27,7 +28,9 @@ module JohnDoe
         collection = data[category]
         responses = collection['responses'].collect{|k,v| v}
         @responses.push(responses)
-        collection['patterns'].each{|k,v| @patterns[normalise_pattern(v)] = @responses.size - 1}
+        emotions = (collection["emotion"].split("|") rescue ["none"])
+        priority = (collection["rank"].to_i rescue 0)
+        collection['patterns'].each{|k,v| @patterns[normalise_pattern(v)] = { :resp => (@responses.size - 1), :emotions => emotions, :priority => priority}}
       end
     end
 
@@ -37,7 +40,7 @@ module JohnDoe
       end
     end
     def normalise_pattern(pattern)
-      pattern.gsub("*",".*").gsub("$","(.*)")
+      pattern.gsub("*",".*").gsub("$","([^\n\?!.$]*)").gsub("?","\\?")
     end
 
   end
