@@ -26,9 +26,10 @@ knowledge:
 
 # AIML-like tags
 name:
-  patterns: 
+  rank: 10
+  patterns:
     p1: what * your name
-    p2: your name
+    p2: * your name
   responses:
     r1: "bot:name bot:surname"
     r2: "Call me bot:name"
@@ -200,7 +201,16 @@ tellme:
   responses:
     r1: "I am just normal bot:specimen"
     r2: "What do you want to know?"
+
+because:
+  patterns:
+    p1: because
+  responses:
+    r1: "that's good reason"
+    r2: "thanks for explanation ;-)"
+
 specimen:
+  priority: 20
   patterns:
     p1: are you * human
     p2: are you * bot
@@ -350,6 +360,7 @@ asl:
   responses:
     r1: "bot:age bot:sex bot:language"
 orly:
+  priority: 10
   patterns:
     p1: "really?"
     p2: are you sure

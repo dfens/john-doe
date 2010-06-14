@@ -29,8 +29,8 @@ module JohnDoe
         responses = collection['responses'].collect{|k,v| v}
         @responses.push(responses)
         emotions = (collection["emotion"].split("|") rescue ["none"])
-        puts emotions.inspect
-        collection['patterns'].each{|k,v| @patterns[normalise_pattern(v)] = { :resp => (@responses.size - 1), :emotions => emotions}}
+        priority = (collection["rank"].to_i rescue 0)
+        collection['patterns'].each{|k,v| @patterns[normalise_pattern(v)] = { :resp => (@responses.size - 1), :emotions => emotions, :priority => priority}}
       end
     end
 

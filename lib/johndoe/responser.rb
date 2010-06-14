@@ -13,12 +13,23 @@ module JohnDoe
     end
 
     def response(sentence)
+      max_priority = -1
+      best_v = nil
+      best_k = nil
+
       @data.patterns.each do |k,v|
         if (/^#{k}/i =~ sentence)
-          return Response.new(sub_v(random_quote(@data.responses[v[:resp]], /^#{k}/i.match(sentence).captures)),v[:emotions])
+          next if v[:priority] <= max_priority
+          max_priority = v[:priority]
+          best_v = v
+          best_k = k
         end
       end
-      return Response.new(sub_v(random_quote(@data.default["dontunderstand"])),["none"])
+      unless best_v.nil?
+        return Response.new(sub_v(random_quote(@data.responses[best_v[:resp]], /^#{best_k}/i.match(sentence).captures)),best_v[:emotions])
+      else
+        return Response.new(sub_v(random_quote(@data.default["dontunderstand"])),["none"])
+      end
     end
 
     #substitute variables
