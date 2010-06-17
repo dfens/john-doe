@@ -4,6 +4,7 @@ default:
   dontunderstand:
     q1: "Sorry I can't understand you."
     q2: "I don't get it..."
+    q3: "I'm bot and i'm written in ruby!"
   thinking:
     q1: "hm.."
     q2: "interesting..."
@@ -50,7 +51,7 @@ hello:
     r4: goodday 
 
 whatsup:
-  priority: 10
+  rank: 10
   patterns:
     p1: "*what's up"
     p2: "*whats up"
@@ -91,9 +92,11 @@ stupid:
 you are:
   patterns:
     p1: you are $
+    p2: "you're $"
   responses:
     r1: sometimes i think I am...
     r2: no, you are $!! hahaha
+    r3: thanks, I needed that
 
 boolean:
   patterns:
@@ -201,6 +204,8 @@ haha:
     p2: ha ha ha
     p3: haha
     p4: ha ha
+    p5: hehe
+    p6: he he
   responses: 
     r1: "I'm glad to make you happy"
     r2: "yes, that's funny"
@@ -222,7 +227,7 @@ because:
     r2: "thanks for explanation ;-)"
 
 specimen:
-  priority: 20
+  rank: 20
   patterns:
     p1: are you * human
     p2: are you * bot
@@ -340,7 +345,7 @@ aboutyou:
     r3: "what about me?"
 
 whysth:
-  priority: 10
+  rank: 10
   patterns:
     p1: why $ ?
     p2: why $
@@ -356,7 +361,7 @@ why:
   responses:
     r1: hard to say why
     r2: not easy to say why
-    r3: "I don' know why"
+    r3: "I don't know why"
     r4: "I'm not sure why"
 doyou:
   patterns:
@@ -389,7 +394,7 @@ asl:
   responses:
     r1: "bot:age bot:sex bot:language"
 orly:
-  priority: 10
+  rank: 10
   patterns:
     p1: "really?"
     p2: are you sure
@@ -412,7 +417,55 @@ testing:
 
 whats:
   patterns:
-    p1: what's $
+    p1: "what's $"
     p2: what is $
   responses:
     r1: "I'm not sure what's $"
+
+whydoes:
+  rank: 10
+  patterns:
+    p1: "why does $"
+  responses:
+    r1: $?
+    r2: good to hear that $
+
+tellme:
+  rank: 5
+  patterns:
+    p1: tell me $
+  responses:
+    r1: "I can't tell you $"
+    r2: "nobody knows $"
+
+random:
+  patterns:
+    p1: random
+  responses:
+    r1: everything is random
+    r2: 42,61,12,41 - this is random!
+
+yousleep:
+  rank: 1
+  patterns:
+    p1: "*you sleep?"
+  responses:
+    r1: "I don't sleep"
+    r2: "Bots NEVER SLEEP"
+
+ithink:
+  patterns:
+    p1: "i think *"
+  responses:
+    r1: "that's right;-)"
+    r2: are you sure?
+    r3: "you're right"
+ruby:
+  patterns:
+    p1: " ruby"
+  responses:
+    r1: "You can look into my ruby code;-)"
+    r2: "i can't code ruby"
+    r3: "learn ruby and you will know"
+
+

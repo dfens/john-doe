@@ -25,6 +25,9 @@ John doe is simple chatbot AI basing on idea of AIML language. Yaml is used inst
 If you want to create your own rules file just do:
   JohnDoe::ChatBot.new("your_rules.yml")
 
+If you want to use another quotes file just do:
+  JohnDoe::ChatBot.new("your_rules.yml", "my_quotes.txt")
+
 === Rules file
 
 See http://github.com/dfens/john-doe/raw/master/default.yml to understand what should be in you rules.yml file.
@@ -40,15 +43,7 @@ whoareyou:
     r3: "I'm nobody"
     r4: "I am bot:name"
 
-There can be unlimited number of patterns that lead to random response from "responses" node. For example if bot gets "Who are you?" it may response "I am chatbot" or "I'm nobody"
-
-There also must be rule 'default':
-  default: 
-    dontunderstand:
-      q1: "Sorry I can't understand you."
-      q2: "I don't get it..."
-      q3: "What what what??"
-it means that if bot do not recognize the sentence it will answer with some quote from 'dontunderstand'.
+If bot does not recognize the sentence it will use markov chain to build it. Bot learns from what you write to him (he will load this data in new session).
 
 There is also possible to add some universal knowledge for bot:
   knowledge:
@@ -82,7 +77,8 @@ whats:
     r1: "I'm not sure what's $"
 
 Now if someone will write "tell me something about ruby language" bot will answer "I'm not sure what's ruby language"
-
+===Quotes
+Quotes file is collection of sentences provided by user during chat. Using markov chains bot is generating answer if he can't recognize pattern.
 == Copyright
 
 Copyright (c) 2010 Pawel Mikolajewski. See LICENSE for details.

@@ -1,4 +1,3 @@
-
 module JohnDoe
   class Response
     attr_accessor :text, :emotion
@@ -8,17 +7,22 @@ module JohnDoe
     end
   end
   class Responser
-    def initialize(data)
+    def initialize(data, quotes)
       @data = data
+      @markov = Markov.new
+      @markov.load quotes
+      @quotes_file = File.open(quotes,"a")
     end
 
     def response(sentence)
+      @quotes_file.puts(sentence + "\n")
       max_priority = -1
       best_v = nil
       best_k = nil
 
       @data.patterns.each do |k,v|
         if (/^#{k}/i =~ sentence)
+          puts "#{v[:priority]}:#{k}"
           next if v[:priority] <= max_priority
           max_priority = v[:priority]
           best_v = v
@@ -28,6 +32,8 @@ module JohnDoe
       unless best_v.nil?
         return Response.new(sub_v(random_quote(@data.responses[best_v[:resp]], /^#{best_k}/i.match(sentence).captures)),best_v[:emotions])
       else
+        generated = @markov.response sentence
+        return Response.new(generated, ["none"]) unless generated.nil?
         return Response.new(sub_v(random_quote(@data.default["dontunderstand"])),["none"])
       end
     end
@@ -57,8 +63,8 @@ module JohnDoe
     end
 
     def describe_who(s)
-      s = s.gsub(/([^a-z])am\s+i([^a-z]|$)/,"\\1#AMI#\\2").gsub(/([^a-z])i\s+am([^a-z]|$)/,"\\1#IAM#\\2").gsub(/([^a-z])you\s+are([^a-z]|$)/,"\\1#AREYOU#\\2").gsub(/([^a-z])are\s+you([^a-z]|$)/,"\\1#AREYOU#\\2").gsub(/([^a-z])me([^a-z]|$)/,"\\1#ME#\\2").gsub(/([^a-z])you([^a-z]|$)/,"\\1#YOU#\\2")
-      s.gsub("#AMI#","you are").gsub("#IAM#","you are").gsub("#AREYOU#","I am").gsub("#ME#","you").gsub("#YOU#","me")
+      s = s.gsub(/([^a-z])am\s+i([^a-z]|$)/,"\\1#AMI#\\2").gsub(/([^a-z])i\s+am([^a-z]|$)/,"\\1#IAM#\\2").gsub(/([^a-z])you\s+are([^a-z]|$)/,"\\1#AREYOU#\\2").gsub(/([^a-z])are\s+you([^a-z]|$)/,"\\1#AREYOU#\\2").gsub(/([^a-z])me([^a-z]|$)/,"\\1#ME#\\2").gsub(/([^a-z])you([^a-z]|$)/,"\\1#YOU#\\2").gsub(/([^a-z])your([^a-z]|$)/,"\\1#YOUR#\\2").gsub(/([^a-z])my([^a-z]|$)/,"\\1#MY#\\2")
+      s.gsub("#AMI#","you are").gsub("#IAM#","you are").gsub("#AREYOU#","I am").gsub("#ME#","you").gsub("#YOU#","me").gsub("#YOUR#","my").gsub("#MY#","your")
     end
   end
 end
