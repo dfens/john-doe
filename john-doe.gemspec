@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
      "VERSION",
      "default.yml",
      "john-doe-0.1.4.gem",
-     "john-doe-0.1.5.gem",
      "john-doe.gemspec",
      "lib/john-doe.rb",
      "lib/johndoe/aiml.rb",
