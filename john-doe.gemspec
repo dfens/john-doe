@@ -24,10 +24,14 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "default.yml",
+     "john-doe-0.1.4.gem",
+     "john-doe-0.1.5.gem",
      "john-doe.gemspec",
      "lib/john-doe.rb",
      "lib/johndoe/aiml.rb",
+     "lib/johndoe/markov.rb",
      "lib/johndoe/responser.rb",
+     "quotes",
      "test/john-doe_test.rb",
      "test/test_helper.rb"
   ]
