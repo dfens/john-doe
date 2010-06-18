@@ -74,30 +74,34 @@ module JohnDoe
     end
 
     def gen_from_two(str)
-      while true
-        found_nil = false
-        two_last = two_last_words(str)
-        return str if @map[two_last].nil? || @map[two_last][:word_sum] == 0
-        r = rand(@map[two_last][:word_sum])
-        @map[two_last].each do |k,v|
-          next if k.class == Symbol
-          r -= v
-          if r < 0
-            found_nil == v.nil?
-            str = str + " " + k
-            break
+      begin
+        while true
+          found_nil = false
+          two_last = two_last_words(str) rescue "I'm still learning"
+          return str if @map[two_last].nil? || @map[two_last][:word_sum] == 0
+          r = rand(@map[two_last][:word_sum])
+          @map[two_last].each do |k,v|
+            next if k.class == Symbol
+            r -= v
+            if r < 0
+              found_nil == v.nil?
+              str = str + " " + k
+              break
+            end
           end
         end
       end
+      rescue nil
     end
 
     def two_last_words(s)
       m = /(.* )?([^\s]+) ([^\s]+)$/.match s
-      return m[2] + " " + m[3]
+      return m[2] + " " + m[3] rescue nil
     end
 
     def response(str)
-      str.squeeze(" ").split(" ").each do |s|
+      str.squeeze(" ").split(" ").sort {|x,y| y.size <=> x.size}.each do |s|
+        puts s
         collection = []
         @map.each do |k,v|
           if k.include? s
@@ -105,7 +109,7 @@ module JohnDoe
           end
         end
         return gen_from_two(@map.keys[rand(@map.keys.size)]) if collection.empty?
-        return gen_from_two collection[rand(collection.size)]
+        return gen_from_two collection[rand(rand(collection.size))] rescue nil
       end
       return nil
     end

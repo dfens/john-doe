@@ -33,6 +33,7 @@ module JohnDoe
         return Response.new(sub_v(random_quote(@data.responses[best_v[:resp]], /^#{best_k}/i.match(sentence).captures)),best_v[:emotions])
       else
         generated = @markov.response sentence
+        puts generated.to_s + "###"
         return Response.new(generated, ["none"]) unless generated.nil?
         return Response.new(sub_v(random_quote(@data.default["dontunderstand"])),["none"])
       end

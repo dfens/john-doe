@@ -309,15 +309,6 @@ movie:
   responses:
     r1: "I like Odyssey 2010..."
 
-areyou:
-  emotion: shame|pride|embarrassment|none
-  patterns:
-    p1: are you
-  responses:
-    r1: sometimes i think i am
-    r2: "hard to answer ;-)"
-    r3: "as I know I'm not"
-
 yesno:
   patterns:
     p1: "yes"
