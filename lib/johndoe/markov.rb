@@ -101,7 +101,6 @@ module JohnDoe
 
     def response(str)
       str.squeeze(" ").split(" ").sort {|x,y| y.size <=> x.size}.each do |s|
-        puts s
         collection = []
         @map.each do |k,v|
           if k.include? s

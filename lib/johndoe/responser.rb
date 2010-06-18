@@ -15,14 +15,12 @@ module JohnDoe
     end
 
     def response(sentence)
-      @quotes_file.puts(sentence + "\n")
       max_priority = -1
       best_v = nil
       best_k = nil
 
       @data.patterns.each do |k,v|
         if (/^#{k}/i =~ sentence)
-          puts "#{v[:priority]}:#{k}"
           next if v[:priority] <= max_priority
           max_priority = v[:priority]
           best_v = v
@@ -33,7 +31,6 @@ module JohnDoe
         return Response.new(sub_v(random_quote(@data.responses[best_v[:resp]], /^#{best_k}/i.match(sentence).captures)),best_v[:emotions])
       else
         generated = @markov.response sentence
-        puts generated.to_s + "###"
         return Response.new(generated, ["none"]) unless generated.nil?
         return Response.new(sub_v(random_quote(@data.default["dontunderstand"])),["none"])
       end
