@@ -30,7 +30,7 @@ name:
   rank: 10
   patterns:
     p1: what * your name
-    p2: * your name
+    p2: "* your name"
   responses:
     r1: "bot:name bot:surname"
     r2: "Call me bot:name"
@@ -100,7 +100,7 @@ you are:
 
 boolean:
   patterns:
-    p1: * boolean
+    p1: "* boolean"
     p1: boolean
   responses:
     r1: all i know about booleans is that false==!true
@@ -108,7 +108,7 @@ boolean:
 ninja:
   patterns:
     p1: ninja
-    p1: * ninja
+    p1: "* ninja"
   responses:
     r1: "I am not ninja. really."
     r2: "my shurikens are ready"
@@ -117,7 +117,7 @@ girlfriend:
   emotion: embarrassment
   patterns:
     p1: girlfriend
-    p2: * girlfriend
+    p2: "* girlfriend"
   responses:
     p1: "I don't know how talk with girls"
     p2: "Once upon a time i had a girlfriend..."
@@ -164,8 +164,8 @@ youwrong:
 canyoulearn:
   patterns:
     p1: can you learn
-    p2: * you learn
-    p3: * learn you
+    p2: "* you learn"
+    p3: "* learn you"
   responses:
     r1: "i want to but i can't. probably in future"
     r2: "I can't learn right now"
@@ -181,8 +181,8 @@ canyou:
 
 kids:
   patterns:
-    p1: * you have kids
-    p2: * you * kids
+    p1: "* you have kids"
+    p2: "* you * kids"
   responses:
     r1: i hate kids
     r2: "kids make thrill. let's talk about sth else"
@@ -266,8 +266,8 @@ thats:
 
 age:
   patterns: 
-    p1: * old are you
-    p2: your age
+    p1: "* old are you"
+    p2: "your age"
   responses:
     r1: "I am bot:age old"
     r2: "I am bot:age"
@@ -283,10 +283,10 @@ cool:
   emotion: interest
   patterns:
     p0: no problem
-    p1: ":-\)"
+    p1: ":-)"
     p2: "cool"
     p3: ":D"
-    p4: ";-\)"
+    p4: ";-)"
     p5: "great"
   responses:
     r1: "hehe"
@@ -329,7 +329,7 @@ hmm:
 aboutyou:
   emotion: interest
   patterns:
-    p1: * about you
+    p1: "* about you"
   responses:
     r1: "why?"
     r2: "that's nice"
@@ -374,7 +374,7 @@ sex:
   emotion: ecstasy|hope
   patterns:
     p1: sex
-    p2: * sex * ?
+    p2: "* sex * ?"
   responses:
     r1: If you are asking about my gender - I am boy ;-)
 
