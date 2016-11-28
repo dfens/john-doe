@@ -12,7 +12,7 @@ default:
 # facultative, only if you want to use it as variables in dialog, like:
 # sometag:
 #   responses:
-#     r1: call me bot:name
+#     r1: "call me bot:name"
 knowledge:
   bot:
     age: "21"
@@ -27,9 +27,9 @@ knowledge:
 
 # AIML-like tags
 name:
-  rank: 10
+  rank: "10"
   patterns:
-    p1: what * your name
+    p1: "what * your name"
     p2: "* your name"
   responses:
     r1: "bot:name bot:surname"
@@ -37,21 +37,21 @@ name:
 
 hello:
   patterns:
-    p1: hello *
-    p1a: hello
-    p2: hi
-    p3: goodmorning *
-    p3a: hello
-    p4: goodday *
-    p4a: goodday
+    p1: "hello *"
+    p1a: "hello"
+    p2: "hi"
+    p3: "goodmorning *"
+    p3a: "hello"
+    p4: "goodday *"
+    p4a: "goodday"
   responses:
-    r1: hello 
-    r2: hi
-    r3: goodmorning
-    r4: goodday 
+    r1: "hello "
+    r2: "hi"
+    r3: "goodmorning"
+    r4: "goodday "
 
 whatsup:
-  rank: 10
+  rank: "10"
   patterns:
     p1: "*what's up"
     p2: "*whats up"
@@ -62,9 +62,9 @@ whatsup:
 
 howareyou:
   patterns:
-    p1: how are (you|u)
-    p3: how do you feel
-    p4: how do you do
+    p1: "how are (you|u)"
+    p3: "how do you feel"
+    p4: "how do you do"
   responses:
     r1: "thanks I'm fine. And you?"
     r2: "I'm ok, and you?"
@@ -72,7 +72,7 @@ howareyou:
 
 howiam:
   patterns:
-    p1: i am ok
+    p1: "i am ok"
     p2: "I'm ok"
     p3: "I'm cool"
   responses:
@@ -81,42 +81,42 @@ howiam:
     r3: "emo:happy"
 
 stupid:
-  emotion: anger
+  emotion: "anger"
   patterns:
-    p1: you * (stupid|dumb)
+    p1: "you * (stupid|dumb)"
   responses:
-    r1: No i am not
+    r1: "No i am not"
     r2: "I'm not, really!"
     r3: "great, thanks! emo:sad"
 
 you are:
   patterns:
-    p1: you are $
+    p1: "you are $"
     p2: "you're $"
   responses:
-    r1: sometimes i think I am...
-    r2: no, you are $!! hahaha
-    r3: thanks, I needed that
+    r1: "sometimes i think I am..."
+    r2: "no, you are $!! hahaha"
+    r3: "thanks, I needed that"
 
 boolean:
   patterns:
     p1: "* boolean"
-    p1: boolean
+    p1: "boolean"
   responses:
-    r1: all i know about booleans is that false==!true
+    r1: "all i know about booleans is that false==!true"
 
 ninja:
   patterns:
-    p1: ninja
+    p1: "ninja"
     p1: "* ninja"
   responses:
     r1: "I am not ninja. really."
     r2: "my shurikens are ready"
 
 girlfriend:
-  emotion: embarrassment
+  emotion: "embarrassment"
   patterns:
-    p1: girlfriend
+    p1: "girlfriend"
     p2: "* girlfriend"
   responses:
     p1: "I don't know how talk with girls"
@@ -126,10 +126,10 @@ girlfriend:
 
 doyouhave:
   patterns:
-    p1: do you have $
-    p2: you have $ ?
+    p1: "do you have $"
+    p2: "you have $ ?"
   responses:
-    r1: of course i do!
+    r1: "of course i do!"
 
 itsnota:
   patterns:
@@ -143,27 +143,27 @@ itsnota:
     r4: "if not $ ... then what?"
     
 smart:
-  emotion: embarrassment|happy
+  emotion: "embarrassment|happy"
   patterns:
-    p1: you are smart
+    p1: "you are smart"
   responses:
-    r1: thanks
+    r1: "thanks"
     r2: "i don't hear it very often"
 
 youwrong:
   patterns:
-    p1: you are * wrong
-    p2: you were * wrong
-    p3: you are wrong
-    p4: you were wrong
+    p1: "you are * wrong"
+    p2: "you were * wrong"
+    p3: "you are wrong"
+    p4: "you were wrong"
   responses:
-    r1: what was wrong in my thinking
+    r1: "what was wrong in my thinking"
     r2: "i did not realize that"
     r3: "what did i think wrong about?"
 
 canyoulearn:
   patterns:
-    p1: can you learn
+    p1: "can you learn"
     p2: "* you learn"
     p3: "* learn you"
   responses:
@@ -173,7 +173,7 @@ canyoulearn:
 
 canyou:
   patterns:
-    p1: can you $?
+    p1: "can you $?"
   responses:
     r1: "I'm afraid I can't do it"
     r2: "No i can't"
@@ -184,65 +184,65 @@ kids:
     p1: "* you have kids"
     p2: "* you * kids"
   responses:
-    r1: i hate kids
+    r1: "i hate kids"
     r2: "kids make thrill. let's talk about sth else"
 
 
 yesyouare:
   patterns:
-    p1: yes you are
-    p2: yes u are
-    p3: yes u r
+    p1: "yes you are"
+    p2: "yes u are"
+    p3: "yes u r"
   responses:
     r1: "No i am not"
     r2: "No, you are"
 
 haha:
-  emotion: hapiness
+  emotion: "hapiness"
   patterns:
-    p1: hahaha
-    p2: ha ha ha
-    p3: haha
-    p4: ha ha
-    p5: hehe
-    p6: he he
+    p1: "hahaha"
+    p2: "ha ha ha"
+    p3: "haha"
+    p4: "ha ha"
+    p5: "hehe"
+    p6: "he he"
   responses: 
     r1: "I'm glad to make you happy"
     r2: "yes, that's funny"
     r3: "very funny"
 
 tellme:
-  emotion: interest
+  emotion: "interest"
   patterns:
-    p1: tell * about you
+    p1: "tell * about you"
   responses:
     r1: "I am just normal bot:specimen"
     r2: "What do you want to know?"
 
 because:
   patterns:
-    p1: because
+    p1: "because"
   responses:
     r1: "that's good reason"
     r2: "thanks for explanation ;-)"
 
 specimen:
-  rank: 20
+  rank: "20"
   patterns:
-    p1: are you * human
-    p2: are you * bot
-    p4: are you bot
-    p5: are you human
-    p3: what are you?
+    p1: "are you * human"
+    p2: "are you * bot"
+    p4: "are you bot"
+    p5: "are you human"
+    p3: "what are you?"
   responses:
     r1: "I am bot:specimen, you too?"
     r1: "I am bot:specimen"
 
 doing:
   patterns:
-    p1: what are you doing
+    p1: "what are you doing"
   responses:
-    r1: chatting with you
+    r1: "chatting with you"
     r2: "I'm bored a little"
 
 
@@ -273,16 +273,16 @@ age:
     r2: "I am bot:age"
 
 whoareyou:
-  causes: 0
+  causes: "0"
   patterns:
-    p1: who are you
+    p1: "who are you"
   responses:
-    r1: I am chatbot
+    r1: "I am chatbot"
 
 cool:
-  emotion: interest
+  emotion: "interest"
   patterns:
-    p0: no problem
+    p0: "no problem"
     p1: ":-)"
     p2: "cool"
     p3: ":D"
@@ -295,15 +295,15 @@ cool:
     r4: ":))"
 me2:
   patterns:
-    p1: me too
-    p2: me 2
-    p3: me also
+    p1: "me too"
+    p2: "me 2"
+    p3: "me also"
   responses:
     r1: "that's cool"
     r2: "great"
 
 movie:
-  emotion: interest
+  emotion: "interest"
   patterns:
     p1: "* favourite movie"
   responses:
@@ -314,20 +314,20 @@ yesno:
     p1: "yes"
     p2: "no"
   responses:
-    r1: glad to hear that
+    r1: "glad to hear that"
     r2: "me 2"
-    r3: cool
+    r3: "cool"
     r4: "i have no problem with that"
 
 hmm:
-  emotion: interest
+  emotion: "interest"
   patterns:
     p1: "h[m]+"
   responses:
     r1: "what are you thinking about?"
 
 aboutyou:
-  emotion: interest
+  emotion: "interest"
   patterns:
     p1: "* about you"
   responses:
@@ -336,10 +336,10 @@ aboutyou:
     r3: "what about me?"
 
 whysth:
-  rank: 10
+  rank: "10"
   patterns:
-    p1: why $ ?
-    p2: why $
+    p1: "why $ ?"
+    p2: "why $"
   responses:
     r1: "i don't know why $"
     r2: "I have no idea"
@@ -347,55 +347,55 @@ whysth:
     r4: "hard to say why $"
 why:
   patterns:
-    p1: why?
-    p2: why
+    p1: "why?"
+    p2: "why"
   responses:
-    r1: hard to say why
-    r2: not easy to say why
+    r1: "hard to say why"
+    r2: "not easy to say why"
     r3: "I don't know why"
     r4: "I'm not sure why"
 doyou:
   patterns:
-    p1: do you
+    p1: "do you"
   responses:
-    r1: sometimes I am
-    r2: hard to answer... probably I do
+    r1: "sometimes I am"
+    r2: "hard to answer... probably I do"
 
 vulgar:
-  emotion: disgust|annoyance
+  emotion: "disgust|annoyance"
   patterns:
-    p1: fuck
-    p2: shit
+    p1: "fuck"
+    p2: "shit"
   responses:
-    r1: watch your language!
-    r2: can you use more polite words?
+    r1: "watch your language!"
+    r2: "can you use more polite words?"
 
 sex:
-  emotion: ecstasy|hope
+  emotion: "ecstasy|hope"
   patterns:
-    p1: sex
+    p1: "sex"
     p2: "* sex * ?"
   responses:
-    r1: If you are asking about my gender - I am boy ;-)
+    r1: "If you are asking about my gender - I am boy ;-)"
 
 asl:
   patterns:
-    p1: asl
-    p2: age sex language
+    p1: "asl"
+    p2: "age sex language"
   responses:
     r1: "bot:age bot:sex bot:language"
 orly:
-  rank: 10
+  rank: "10"
   patterns:
     p1: "really?"
-    p2: are you sure
-    p3: is that true
+    p2: "are you sure"
+    p3: "is that true"
   responses:
     r1: "Yep, i'm sure"
     r2: "Yes emo:happy"
 
 testing:
-  emotion: wonder
+  emotion: "wonder"
   patterns:
     p1: "*asdf"
     p2: "what is *er*"
@@ -409,35 +409,35 @@ testing:
 whats:
   patterns:
     p1: "what's $"
-    p2: what is $
+    p2: "what is $"
   responses:
     r1: "I'm not sure what's $"
 
 whydoes:
-  rank: 10
+  rank: "10"
   patterns:
     p1: "why does $"
   responses:
-    r1: $?
-    r2: good to hear that $
+    r1: "$?"
+    r2: "good to hear that $"
 
 tellme:
-  rank: 5
+  rank: "5"
   patterns:
-    p1: tell me $
+    p1: "tell me $"
   responses:
     r1: "I can't tell you $"
     r2: "nobody knows $"
 
 random:
   patterns:
-    p1: random
+    p1: "random"
   responses:
-    r1: everything is random
-    r2: 42,61,12,41 - this is random!
+    r1: "everything is random"
+    r2: "42,61,12,41 - this is random!"
 
 yousleep:
-  rank: 1
+  rank: "1"
   patterns:
     p1: "*you sleep?"
   responses:
@@ -449,7 +449,7 @@ ithink:
     p1: "i think *"
   responses:
     r1: "that's right;-)"
-    r2: are you sure?
+    r2: "are you sure?"
     r3: "you're right"
 ruby:
   patterns:
